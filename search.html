@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>搜索_传奇私服发布网</title>
+<meta name="keywords" content="传奇搜索,传奇私服搜索,传奇私服发布网">
+<meta name="description" content="在传奇私服发布网搜索你感兴趣的版本、攻略与资讯。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://zxsfw.github.io/search.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <span>欢迎来到传奇私服发布网 · 每日更新最新新开传奇私服开服表</span>
+    <span><a href="index.html">网站首页</a><a href="map.html">网站地图</a><a href="sitemap.xml">sitemap</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-main">
+    <div class="logo">
+      <div class="badge">传</div>
+      <div>
+        <h1>传奇私服发布网</h1>
+        <div class="sub">每日新区开服表 · 找服首选平台</div>
+      </div>
+    </div>
+    <form class="header-search" action="search.html" method="get" onsubmit="return checkSearch(this)">
+      <input type="text" name="q" placeholder="搜索版本 / 服名">
+      <button type="submit">搜 索</button>
+    </form>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container"><ul>
+      <li><a href="index.html">网站首页</a></li>
+      <li><a href="category-fugu.html">176复古</a></li>
+      <li><a href="category-heji.html">合击打金</a></li>
+      <li><a href="category-996.html">996大全</a></li>
+      <li><a href="gonglue.html">传奇攻略</a></li>
+      <li><a href="news.html">传奇资讯</a></li>
+      <li><a href="xinfu.html">新服动态</a></li>
+      <li><a href="rank.html">传奇排行</a></li>
+      <li><a href="about.html">关于本站</a></li>
+  </ul></div>
+</nav>
+
+<div class="container crumb">当前位置：<a href="index.html">首页</a> &raquo; 搜索</div>
+<section class="container section">
+  <div class="search-box">
+    <form action="search.html" method="get" onsubmit="return checkSearch(this)">
+      <input type="text" name="q" id="q" placeholder="输入关键词，如：复古、打金、合击">
+      <button type="submit">搜 索</button>
+    </form>
+  </div>
+  <div id="results"></div>
+</section>
+<script>
+var DATA = [
+  {id:1, title:"传奇私服发布网新开服：版本设定与开服节奏全方位实测", desc:"从版本设定、开服节奏到运行稳定性全方位解析，帮你快速判断这个服值不值得入坑。", cat:"996大全"},
+  {id:2, title:"迷失传奇深度评测：迷失版本究竟值不值得入坑", desc:"迷失之城开放、多层地图嵌套、觉醒装备体系，从玩法特色到氪金深度全面解析。", cat:"迷失传奇"},
+  {id:3, title:"冰雪传奇开服实录：冰雪之城爆率实测与打宝路线推荐", desc:"冰雪之城外城、内城、宫殿三层掉落全公开，实测不同层级的爆率分布。", cat:"冰雪传奇"},
+  {id:4, title:"1.76合击传奇入门指南：英雄搭配与技能组合全解析", desc:"从主体职业选择到英雄搭配，再到合击技能释放时机，新手必看的合击入门攻略。", cat:"1.76合击"},
+  {id:5, title:"传奇公益服真实体验：零氪玩家也能玩得下去吗", desc:"公益服是否真的公益？从氪金项目、爆率设定到散人生态，实测零氪玩家的生存空间。", cat:"传奇公益服"},
+  {id:6, title:"三端互通传奇到底香不香：手机电脑平板数据全打通", desc:"三端互通版本的真实体验，数据同步是否流畅，跨设备玩传奇究竟值不值。", cat:"三端互通"},
+  {id:7, title:"996传奇是什么：996版本特色玩法与升级路线详解", desc:"996传奇的命名由来、核心玩法机制与高效升级路线，帮新手快速入门。", cat:"996大全"},
+  {id:8, title:"1.76打金传奇怎么玩：打金路线与收益周期实测", desc:"1.76打金传奇的资源产出体系、搬砖路线规划与收益周期实测分析。", cat:"1.76打金"},
+  {id:9, title:"打金手游推荐：哪些传奇手游打金效率最高", desc:"盘点当前打金效率较高的传奇手游，从爆率、交易系统到变现渠道全面对比。", cat:"打金手游"},
+  {id:10, title:"1.76轻变传奇为什么火：轻变版本的核心吸引力在哪", desc:"1.76轻变版本在保留经典玩法的基础上做了哪些优化，为什么能持续吸引玩家。", cat:"1.76轻变"},
+  {id:11, title:"合击传奇入门：新手必看的合击技能释放时机与连招技巧", desc:"合击技能的蓄力机制、打断判定与连招组合，帮新手掌握合击战斗的节奏。", cat:"合击传奇"},
+  {id:12, title:"传奇新服10级账号养成避坑：这5个前期错误会让号直接废掉", desc:"新服开荒前三天的关键决策点，五个最常见的账号养成错误及正确做法。", cat:"传奇攻略"},
+  {id:13, title:"独家巨作《创世复古》今日上线：1.76复古三年磨一剑", desc:"三年打磨的纯正1.76复古版本，无商城无氪金，装备全靠打的真实体验。", cat:"复古传奇"},
+  {id:14, title:"传奇PK走位教学：学会S型绕后单挑从此不输", desc:"单挑中决定胜负的不只是装备与等级，走位技巧往往能起到决定性作用。", cat:"传奇攻略"},
+  {id:15, title:"传奇法师PK连招教程：冰咆哮接雷电还是火墙实测对比", desc:"法师在传奇PK中的技能衔接节奏，不同场景下的最优连招顺序实测。", cat:"传奇攻略"},
+  {id:16, title:"1.76复古传奇深度解析：2026年最值得玩的复古版本长什么样", desc:"2026年的复古传奇市场百花齐放，从真实玩家视角解析什么样的复古版本值得投入。", cat:"复古传奇"},
+  {id:17, title:"复古传奇手游体验报告：手机上玩复古传奇是什么感受", desc:"复古传奇上手机之后体验如何，从操作手感到画面表现全面评测。", cat:"复古传奇"},
+  {id:18, title:"复古怀旧传奇为什么让人上瘾：从心理学角度分析传奇的吸引力", desc:"传奇这款游戏为什么能让人沉迷二十年，从心理学机制角度深度分析。", cat:"复古传奇"},
+  {id:19, title:"1.76传奇新手指南：从零开始认识传奇的三个职业", desc:"战士、法师、道士三大职业的定位、特点与养成路线，新手入坑必读。", cat:"1.76传奇"},
+  {id:20, title:"1.80合击传奇版本评测：合击玩法相比传统版本有哪些升级", desc:"1.80合击传奇在职业体系、合击技能和装备系统上的改良，与传统版本的对比。", cat:"1.80合击"},
+  {id:21, title:"单职业传奇《西游神器》开服实测：玩法简单够劲好玩又上头", desc:"单职业版本上手快、节奏紧凑，实测首日升级曲线与爆率分布。", cat:"单职业传奇"},
+  {id:22, title:"火龙传奇《主宰火龙》评测：火龙系列经典回归攻沙全面升级", desc:"火龙系列经典回归，全新火龙地图与装备体系，攻沙玩法全面升级体验。", cat:"火龙传奇"},
+  {id:23, title:"1.80微变传奇《火龙微变》今日开服：保留经典优化成长节奏", desc:"1.80微变版本在保留经典玩法同时优化成长节奏，适合新老玩家共同体验。", cat:"1.80微变"},
+  {id:24, title:"开荒期装备速成指南：大神不愿透露的三条实战铁律", desc:"开荒期资源有限，如何把每一分投入都花在刀刃上，三条实战铁律帮你少走弯路。", cat:"传奇攻略"},
+  {id:25, title:"冥王战将破局思路：90%老玩家都会忽略的防御阈值", desc:"打BOSS不是堆攻击，防御阈值才是通关关键，从数据角度解析冥王战将的破局思路。", cat:"传奇攻略"}
+];
+function doSearch(kw){
+  kw = (kw||'').toLowerCase().trim();
+  var box = document.getElementById('results');
+  if(!kw){ box.innerHTML = '<div class="search-box">请输入关键词</div>'; return; }
+  var r = DATA.filter(function(a){ return a.title.toLowerCase().indexOf(kw)>-1 || a.desc.toLowerCase().indexOf(kw)>-1 || a.cat.toLowerCase().indexOf(kw)>-1; });
+  if(r.length===0){ box.innerHTML = '<div class="search-box">未找到与 <span class="kw">'+kw+'</span> 相关的内容，换个关键词试试</div>'; return; }
+  var h = '<ul class="search-results">';
+  r.forEach(function(a){ h += '<li><h3><a href="article-'+a.id+'.html">'+a.title.replace(new RegExp('('+kw+')','gi'),'<span class="kw">$1</span>')+'</a></h3><p>'+a.desc+'</p><span style="color:#999;font-size:12px;">'+a.cat+'</span></li>'; });
+  h += '</ul>';
+  box.innerHTML = h;
+}
+var p = location.search.match(/[?&]q=([^&]*)/);
+if(p){ var v = decodeURIComponent(p[1].replace(/\+/g,' ')); document.getElementById('q').value = v; doSearch(v); }
+function checkSearch(f){ var v=f.q.value; if(!v){ alert('请输入搜索关键词'); return false; } return true; }
+</script>
+<footer class="footer">
+  <div class="container">
+    <div class="foot-nav">
+      <a href="index.html">网站首页</a>|
+      <a href="category-fugu.html">176复古</a>|
+      <a href="category-heji.html">合击打金</a>|
+      <a href="category-996.html">996大全</a>|
+      <a href="gonglue.html">传奇攻略</a>|
+      <a href="news.html">传奇资讯</a>|
+      <a href="xinfu.html">新服动态</a>|
+      <a href="rank.html">传奇排行</a>|
+      <a href="map.html">网站地图</a>|
+      <a href="about.html">关于本站</a>
+    </div>
+    <div class="copy">Copyright &copy; 2026 传奇私服发布网 版权所有</div>
+    <div class="seo">传奇私服发布网每日更新今日新开传奇私服开服表，收录1.76复古、单职业、合击、冰雪、打金、轻变等热门传奇私服版本，新区开服信息一应俱全，助玩家快速找到心仪的传奇私服，畅玩无忧。</div>
+  </div>
+</footer>
+
+<script>
+function checkSearch(f){ var v=f.q.value; if(!v){ alert('请输入搜索关键词'); return false; } return true; }
+</script>
+</body>
+</html>
